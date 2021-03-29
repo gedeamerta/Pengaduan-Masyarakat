@@ -47,7 +47,8 @@ class Masyarakat {
                 ";
             exit;
             }else {
-                $prepare = $this->pdo->prepare("INSERT INTO masyarakat (nik, nama, username, password, telp) VALUES(:nik, :nama, :username, :password, :telp)");
+                $prepare = $this->pdo->prepare("call insert_masyarakat('$nik', '$nama', '$username', '$password', '$telp')");
+                var_dump($prepare);
                 $prepare->bindParam(":nik", $nik);
                 $prepare->bindParam(":nama", $nama);
                 $prepare->bindParam(":username", $username);
